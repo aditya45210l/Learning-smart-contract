@@ -1,0 +1,8 @@
+InteractionTest:testOnlyOwnerCanWithdraw() (gas: 3385377)
+InteractionTest:testUserCanFundInteractions() (gas: 1782015)
+TestFundMe:testErrorMinValue() (gas: 32045)
+TestFundMe:testFundersArray() (gas: 107812)
+TestFundMe:testMinBalanceIsFive() (gas: 8834)
+TestFundMe:testOwnerAddress() (gas: 11202)
+TestFundMe:testWithdrawal() (gas: 89224)
+TestFundMe:testWithdrawalWithSingleFunder() (gas: 93837)

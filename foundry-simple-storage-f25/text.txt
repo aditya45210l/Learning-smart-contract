@@ -1,0 +1,1 @@
+0x2BEDaa5f2634455EC0d5c3A7E04eeC36f784c4B2 => sepolia smart contract address
