@@ -7,6 +7,8 @@ import {MockV3Aggregator} from "../test/mocks/MockAggregatorV3.sol";
 
 contract HelperConfig is Script {
     NetworkConfig public activeNetworkConfig;
+    NetworkConfig public sepoliaNetworkConfig;
+    NetworkConfig public anvilNetworkConfig;
 
     struct NetworkConfig {
         address priceFeed;
@@ -14,9 +16,12 @@ contract HelperConfig is Script {
 
     constructor() {
         if (block.chainid == 11155111) {
-            activeNetworkConfig = getSepoliaEthConfig();
+            sepoliaNetworkConfig = getSepoliaEthConfig();
+            activeNetworkConfig = sepoliaNetworkConfig;
         } else {
-            activeNetworkConfig = getAnvilEthConfig();
+
+            anvilNetworkConfig = getAnvilEthConfig();
+            activeNetworkConfig = anvilNetworkConfig;
         }
     }
 
@@ -25,7 +30,7 @@ contract HelperConfig is Script {
     }
 
     function getAnvilEthConfig() public returns (NetworkConfig memory) {
-        if (activeNetworkConfig.priceFeed != address(0)) {
+        if (anvilNetworkConfig.priceFeed != address(0)) {
             return activeNetworkConfig;
         }
         MockV3Aggregator mockPriceFeed;
