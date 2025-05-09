@@ -75,7 +75,7 @@ contract Raffle is VRFConsumerBaseV2Plus {
     // This funciton help player to Enter the raffle
     function enterRaffle() external payable {
         /**
-         * @dev checking player must send grater then the entranceFee which was set by lottery owner
+         * @dev checking player must send ETH more then the entranceFee which was set by lottery owner!
          */
         if (msg.value < i_entranceFee) {
             revert Raffle__NotEnoughEthSent();
@@ -84,11 +84,11 @@ contract Raffle is VRFConsumerBaseV2Plus {
             revert Raffle__RaffleClosed();
         }
         /**
-         * @dev store the player Address in a array of players for future useCase
+         * @dev Storing contrubiters address
          */
         s_players.push(payable(msg.sender));
         /**
-         * @dev emiting a event when a new palyer was enter in our lottery
+         * @dev Emiting an event when ever new palyer was enter in lottery
          */
         emit Raffle__playerEnterd(msg.sender);
     }
